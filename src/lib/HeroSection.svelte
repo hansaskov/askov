@@ -1,0 +1,56 @@
+<!-- src/lib/HeroSection.svelte -->
+<script>
+	import { onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
+
+	let currentImageIndex = 0;
+	const images = [
+		'images/hjemmet_garden.JPG',
+		'images/hjemmet_view1.jpg',
+		'images/hjemmet_view2.jpg',
+		'images/hjemmet_view3.jpg'
+	];
+
+	onMount(() => {
+		const interval = setInterval(() => {
+			currentImageIndex = (currentImageIndex + 1) % images.length;
+		}, 5000);
+
+		return () => {
+			clearInterval(interval);
+		};
+	});
+</script>
+
+<div class="relative w-full h-screen" {...$$restProps}>
+	{#each images as image, index}
+		{#if currentImageIndex === index}
+			<img
+				src={image}
+				alt={`Hjemmet view ${index + 1}`}
+				class="absolute inset-0 w-full h-full object-cover"
+				transition:fade={{ duration: 1000 }}
+			/>
+		{/if}
+	{/each}
+	<div
+		class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black via-transparent to-black opacity-50"
+	/>
+	<div
+		class="absolute top-1/2 left-1/2 w-full transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center p-4 text-center bg-black bg-opacity-50"
+	>
+		<h2 class="text-5xl text-secondary font-bold mb-4">Velkommen til Askov.dk</h2>
+		<p class="text-xl font-medium text-accent">Et kig ind i familien askov og deres hjemmeside</p>
+	</div>
+	<div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-3">
+		{#each images as _, index}
+			<button
+				class={`w-4 h-4 block rounded-full cursor-pointer ${
+					currentImageIndex === index ? 'bg-white' : 'bg-opacity-40 bg-white'
+				}`}
+				on:click={() => (currentImageIndex = index)}
+				aria-label={`View image ${index + 1}`}
+			/>
+		{/each}
+	</div>
+</div>
