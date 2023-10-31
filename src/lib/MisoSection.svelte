@@ -1,12 +1,13 @@
 <script>
 	const images = [
 		{ path: 'images/miso_3.jpg', description: 'Miso solbader i vores lænestol' },
-		{ path: 'images/miso_1.jpg', description: 'Miso slapper af og kigger på fugle' },
+		{ path: 'images/miso_7.jpg', description: 'Miso har været hos lægen' },
 		{
-			path: 'images/miso_2.jpg',
-			description: 'Miso ligger på gulvet og kigger på kameraet'
+			path: 'images/miso_8.jpg',
+			description: 'Miso har spillet Mario Kart med familien'
 		},
-		{ path: 'images/miso_4.jpg', description: 'Miso ligger på sofaen' }
+		{ path: 'images/miso_1.jpg', description: 'Miso ligger udenfor og ser på fulge'},
+		{ path: 'images/miso_5.JPG', description: 'Miso sover udenfor' }
 	];
 </script>
 
