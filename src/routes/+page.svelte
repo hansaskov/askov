@@ -1,6 +1,6 @@
 <!-- src/routes/+layout.svelte or src/routes/+page.svelte -->
 <script>
-	import HeroSection from '$lib/HeroSection.svelte';
+	import HeroSection from '$lib/HouseSection.svelte';
 	import MisoSection from '$lib/MisoSection.svelte';
 </script>
 
