@@ -38,7 +38,6 @@
 				alt={`Hjemmet view ${index + 1}`}
 				class="absolute inset-0 w-full h-full object-cover"
 				transition:fade={{ duration: 800 }}
-				loading="lazy"
 			/>
 		{/if}
 	{/each}
