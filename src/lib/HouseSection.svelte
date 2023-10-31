@@ -1,9 +1,12 @@
-<!-- src/lib/HeroSection.svelte -->
+<!-- src/lib/HouseSection.svelte -->
 <script>
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 
 	let currentImageIndex = 0;
+
+	/** @type {number | undefined}*/
+	let interval;
 	const images = [
 		'images/hjemmet_garden.JPG',
 		'images/hjemmet_view1.jpg',
@@ -11,25 +14,31 @@
 		'images/hjemmet_view3.jpg'
 	];
 
-	onMount(() => {
-		const interval = setInterval(() => {
+	function startImageRotation() {
+		clearInterval(interval);
+		interval = setInterval(() => {
 			currentImageIndex = (currentImageIndex + 1) % images.length;
 		}, 5000);
+	}
 
-		return () => {
-			clearInterval(interval);
-		};
-	});
+	onMount(startImageRotation);
+
+	/** @param {number} index */
+	function onIndicatorClick(index) {
+		currentImageIndex = index;
+		startImageRotation();
+	}
 </script>
 
 <div class="relative w-full h-screen" {...$$restProps}>
-	{#each images as image, index}
+	{#each images as image, index (image)}
 		{#if currentImageIndex === index}
 			<img
 				src={image}
 				alt={`Hjemmet view ${index + 1}`}
 				class="absolute inset-0 w-full h-full object-cover"
-				transition:fade={{ duration: 1000 }}
+				transition:fade={{ duration: 500 }}
+				loading="lazy"
 			/>
 		{/if}
 	{/each}
@@ -45,10 +54,9 @@
 	<div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-3">
 		{#each images as _, index}
 			<button
-				class={`w-4 h-4 block rounded-full cursor-pointer ${
-					currentImageIndex === index ? 'bg-white' : 'bg-opacity-40 bg-white'
-				}`}
-				on:click={() => (currentImageIndex = index)}
+				class="w-4 h-4 block bg-background bg-opacity-40 rounded-full cursor-pointer"
+				class:bg-opacity-100={currentImageIndex === index}
+				on:click={() => onIndicatorClick(index)}
 				aria-label={`View image ${index + 1}`}
 			/>
 		{/each}
