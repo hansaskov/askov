@@ -1,5 +1,6 @@
 <!-- src/routes/+layout.svelte or src/routes/+page.svelte -->
 <script>
+	import '../app.css';
 	import HeroSection from '$lib/HouseSection.svelte';
 	import MisoSection from '$lib/MisoSection.svelte';
 </script>
@@ -10,6 +11,5 @@
 	</div>
 	<div class="snap-start min-h-screen snap-always">
 		<MisoSection />
-		<!-- Additional content here if needed to allow scrolling within this section -->
 	</div>
 </div>
