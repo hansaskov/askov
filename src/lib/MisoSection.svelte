@@ -1,9 +1,9 @@
 <script>
-	import Miso3 from '$lib/assets/miso_3.jpg';
-	import Miso7 from '$lib/assets/miso_7.jpg';
-	import Miso8 from '$lib/assets/miso_8.jpg';
-	import Miso1 from '$lib/assets/miso_1.jpg';
-	import Miso4 from '$lib/assets/miso_4.jpg';
+	import Miso3 from '$lib/assets/miso/miso_3.webp';
+	import Miso7 from '$lib/assets/miso/miso_7.webp';
+	import Miso8 from '$lib/assets/miso/miso_8.webp';
+	import Miso1 from '$lib/assets/miso/miso_1.webp';
+	import Miso4 from '$lib/assets/miso/miso_4.webp';
 
 	/** @type {{ path: string, description: string }[]} */
 	const images = [
