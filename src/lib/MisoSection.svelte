@@ -1,11 +1,17 @@
 <script>
+	import Miso3 from '$lib/assets/miso_3.jpg';
+	import Miso7 from '$lib/assets/miso_7.jpg';
+	import Miso8 from '$lib/assets/miso_8.jpg';
+	import Miso1 from '$lib/assets/miso_1.jpg';
+	import Miso4 from '$lib/assets/miso_4.jpg';
+
 	/** @type {{ path: string, description: string }[]} */
 	const images = [
-		{ path: 'images/miso_3.jpg', description: 'Miso solbader i vores lænestol' },
-		{ path: 'images/miso_7.jpg', description: 'Miso har været hos dyrlægen' },
-		{ path: 'images/miso_8.jpg', description: 'Miso har spillet Mario Kart med familien' },
-		{ path: 'images/miso_1.jpg', description: 'Miso ligger udenfor og ser på fugle' },
-		{ path: 'images/miso_5.JPG', description: 'Miso sover udenfor' }
+		{ path: Miso3, description: 'Miso solbader i vores lænestol' },
+		{ path: Miso7, description: 'Miso har været hos dyrlægen' },
+		{ path: Miso8, description: 'Miso har spillet Mario Kart med familien' },
+		{ path: Miso1, description: 'Miso ligger udenfor og ser på fugle' },
+		{ path: Miso4, description: 'Miso sover udenfor' }
 	];
 </script>
 
@@ -18,7 +24,7 @@
 		<div class={`flex ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} items-center my-4`}>
 			<img
 				src={path}
-				alt="Miso"
+				alt={description}
 				class={`w-[49%] shadow-lg ${index % 2 === 0 ? 'rounded-r-xl' : 'rounded-l-xl'}`}
 			/>
 			<p class="flex-1 text-md sm:text-xl lg:text-3xl mx-8 text-center text-primary p-4 rounded-lg">

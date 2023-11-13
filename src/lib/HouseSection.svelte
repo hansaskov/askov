@@ -1,5 +1,10 @@
 <!-- src/lib/HouseSection.svelte -->
 <script>
+	import House1 from '$lib/assets/hjemmet/hjemmet_view1.jpg';
+	import House2 from '$lib/assets/hjemmet/hjemmet_view2.jpg';
+	import House3 from '$lib/assets/hjemmet/hjemmet_view3.jpg';
+	import House4 from '$lib/assets/hjemmet/hjemmet_view4.webp';
+
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 
@@ -7,12 +12,7 @@
 
 	/** @type {number | undefined}*/
 	let interval;
-	const images = [
-		'images/hjemmet_garden.JPG',
-		'images/hjemmet_view1.jpg',
-		'images/hjemmet_view2.jpg',
-		'images/hjemmet_view3.jpg'
-	];
+	const images = [House4, House1, House2, House3];
 
 	function startImageRotation() {
 		clearInterval(interval);
@@ -61,5 +61,4 @@
 			/>
 		{/each}
 	</div>
-	
 </div>
