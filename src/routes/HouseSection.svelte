@@ -30,7 +30,7 @@
 	}
 </script>
 
-<div class="relative w-full h-screen" {...$$restProps}>
+<div class="relative h-screen" {...$$restProps}>
 	{#each images as image, index (image)}
 		{#if currentImageIndex === index}
 			<img

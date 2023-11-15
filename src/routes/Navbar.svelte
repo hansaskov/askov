@@ -3,7 +3,8 @@
 </script>
 
 <div
-	class="flex navbar bg-base-100 bg-opacity-90 shadow-lg rounded-box sticky bottom-16 md:top-0 mx-4 w-auto max-w-full"
+	class="flex navbar fixed bottom-4 md:top-4 md:bottom-full mx-4 bg-base-100 bg-opacity-90 shadow-lg rounded-box"
+	style="width: calc(100% - 2rem);"
 >
 	<div>
 		<a href="/" class="btn btn-ghost text-lg md:text-2xl">Askov</a>

@@ -6,13 +6,14 @@
 	import Navbar from './Navbar.svelte';
 </script>
 
-<div class="h-screen overflow-y-scroll snap-y snap-proximity pt-4">
-	<div class="snap-start h-screen snap-always">
+<div class="h-screen overflow-y-scroll snap-y snap-proximity">
+	<div class="snap-start snap-always">
 		<HeroSection />
 	</div>
 
-	<div class="snap-start min-h-screen snap-always flex md:flex-col flex-col-reverse">
-		<Navbar />
+	<div class="snap-start snap-always pt-8 pb-20 md:pt-24">
 		<MisoSection />
 	</div>
 </div>
+
+
