@@ -53,7 +53,7 @@
 	<div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-3">
 		{#each images as _, index}
 			<button
-				class="w-4 h-4 block bg-background rounded-full cursor-pointer"
+				class="w-4 h-4 block bg-base-100 rounded-full cursor-pointer"
 				class:bg-opacity-100={currentImageIndex === index}
 				class:bg-opacity-40={currentImageIndex !== index}
 				on:click={() => onIndicatorClick(index)}
