@@ -36,7 +36,7 @@
 			<img
 				src={image}
 				alt={`Hjemmet view ${index + 1}`}
-				class="absolute inset-0 w-full h-full object-cover"
+				class="absolute w-full h-full object-cover"
 				transition:fade={{ duration: 800 }}
 			/>
 		{/if}
@@ -50,7 +50,7 @@
 		<h2 class="text-5xl text-secondary font-bold mb-4">Velkommen til Askov.dk</h2>
 		<p class="text-xl font-medium text-accent">Et kig ind i familien askov og deres hjemmeside</p>
 	</div>
-	<div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-3">
+	<div class="absolute bottom-20 md:bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-3">
 		{#each images as _, index}
 			<button
 				class="w-4 h-4 block bg-base-100 rounded-full cursor-pointer"
