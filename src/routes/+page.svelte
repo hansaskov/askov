@@ -1,9 +1,9 @@
 <!-- src/routes/+layout.svelte or src/routes/+page.svelte -->
 <script>
 	import '../app.css';
-	import HeroSection from '$lib/components/HouseSection.svelte';
-	import MisoSection from '$lib/components/MisoSection.svelte';
-	import Navbar from '$lib/components/Navbar.svelte';
+	import HeroSection from './HouseSection.svelte';
+	import MisoSection from './MisoSection.svelte';
+	import Navbar from './Navbar.svelte';
 </script>
 
 <div class="h-screen overflow-y-scroll snap-y snap-proximity pt-4">
