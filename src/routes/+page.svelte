@@ -11,9 +11,11 @@
 		<HeroSection />
 	</div>
 
-	<Navbar />
+	
 
 	<div class="snap-start min-h-screen snap-always">
+		
 		<MisoSection />
+		<Navbar />
 	</div>
 </div>
