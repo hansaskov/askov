@@ -15,7 +15,7 @@
 	];
 </script>
 
-<div class="bg-background text-text pt-8 pb-20" {...$$restProps}>
+<div class="bg-background text-text pt-8 pb-16" {...$$restProps}>
 	<h1 class="text-3xl lg:text-5xl font-bold text-primary mb-8 text-center">
 		Mød Miso, vores yndlingskat!
 	</h1>

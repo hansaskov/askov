@@ -11,11 +11,8 @@
 		<HeroSection />
 	</div>
 
-	
-
-	<div class="snap-start min-h-screen snap-always">
-		
-		<MisoSection />
+	<div class="snap-start min-h-screen snap-always flex md:flex-col flex-col-reverse">
 		<Navbar />
+		<MisoSection />
 	</div>
 </div>

@@ -2,7 +2,7 @@
 	const themes = { spring: 'Forår', fall: 'Efterår' };
 </script>
 
-<div class="dropdown">
+<div class="dropdown dropdown-top md:dropdown-bottom dropdown-hover">
 	<!-- dropdown content -->
 	<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 	<!-- svelte-ignore a11y-label-has-associated-control -->
