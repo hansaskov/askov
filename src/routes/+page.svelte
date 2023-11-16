@@ -2,15 +2,17 @@
 <script>
 	import HeroSection from './HouseSection.svelte';
 	import MisoSection from './MisoSection.svelte';
+	import Navbar from './Navbar.svelte';
 </script>
 
-<div class="h-screen overflow-y-scroll snap-y snap-proximity">
+<div class="snap-y snap-proximity">
 	<div class="snap-start snap-always">
 		<HeroSection />
 	</div>
 
-	<div class="snap-start snap-always pt-8 pb-20 md:pt-24">
+	<div class="flex flex-col md:flex-col-reverse snap-start snap-always ">
 		<MisoSection />
+		<Navbar />
 	</div>
 </div>
 

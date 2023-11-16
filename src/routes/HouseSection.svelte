@@ -30,7 +30,7 @@
 	}
 </script>
 
-<div class="relative h-screen" {...$$restProps}>
+<div class="relative h-[100dvh]" {...$$restProps}>
 	{#each images as image, index (image)}
 		{#if currentImageIndex === index}
 			<img
@@ -50,7 +50,7 @@
 		<h2 class="text-5xl text-secondary font-bold mb-4">Velkommen til Askov.dk</h2>
 		<p class="text-xl font-medium text-accent">Et kig ind i familien askov og deres hjemmeside</p>
 	</div>
-	<div class="absolute bottom-20 md:bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-3">
+	<div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-3">
 		{#each images as _, index}
 			<button
 				class="w-4 h-4 block bg-base-100 rounded-full cursor-pointer"

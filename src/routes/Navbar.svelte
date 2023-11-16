@@ -3,7 +3,7 @@
 </script>
 
 <div
-	class="flex navbar fixed bottom-4 md:top-4 md:bottom-full mx-4 bg-base-100 bg-opacity-90 shadow-lg rounded-box"
+	class="flex navbar sticky bottom-4 md:top-4 md:bottom-full mx-4 bg-base-100 bg-opacity-90 shadow-lg rounded-box"
 	style="width: calc(100% - 2rem);"
 >
 	<div>
