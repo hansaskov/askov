@@ -14,8 +14,7 @@ export const GET = async ({ url, cookies, locals }) => {
 		});
 	}
 	try {
-		const { getExistingUser, googleUser, createUser, createKey, googleTokens } =
-			await googleAuth.validateCallback(code);
+		const { getExistingUser, googleUser, createUser } = await googleAuth.validateCallback(code);
 
 		const getUser = async () => {
 			const existingUser = await getExistingUser();
@@ -47,8 +46,9 @@ export const GET = async ({ url, cookies, locals }) => {
 	} catch (e) {
 		if (e instanceof OAuthRequestError) {
 			// invalid code
-			return new Response(null, {
-				status: 400
+			console.log(e.response)
+			return new Response(e.response.body, {
+				status: 400,
 			});
 		}
 		return new Response(null, {
