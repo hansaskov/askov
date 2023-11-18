@@ -10,10 +10,8 @@
 		<HeroSection />
 	</div>
 
-	<div class="flex flex-col md:flex-col-reverse snap-start snap-always ">
+	<div class="flex flex-col md:flex-col-reverse snap-start snap-always">
 		<MisoSection />
 		<Navbar />
 	</div>
 </div>
-
-

@@ -1,9 +1,8 @@
 <script>
-	import Navbar from "../Navbar.svelte";
-
+	import Navbar from '../Navbar.svelte';
 </script>
 
-<Navbar/>
+<Navbar />
 <article class="prose pt-8">
 	<h2>Coming soon</h2>
 </article>

@@ -9,25 +9,38 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write ."
+		"format": "prettier --plugin-search-dir . --write .",
+		"generate": "drizzle-kit generate:sqlite",
+		"push": "drizzle-kit push:sqlite",
+		"studio": "drizzle-kit studio"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-vercel": "^3.0.3",
+		"@sveltejs/adapter-vercel": "^3.1.0",
 		"@sveltejs/kit": "^1.27.6",
 		"@tailwindcss/typography": "^0.5.10",
 		"autoprefixer": "^10.4.16",
-		"daisyui": "^4.0.7",
-		"eslint": "^8.53.0",
+		"daisyui": "^4.4.2",
+		"drizzle-kit": "^0.20.4",
+		"eslint": "^8.54.0",
 		"eslint-config-prettier": "^8.10.0",
 		"eslint-plugin-svelte": "^2.35.0",
 		"postcss": "^8.4.31",
 		"prettier": "^2.8.8",
 		"prettier-plugin-svelte": "^2.10.1",
-		"svelte": "^4.2.3",
+		"svelte": "^4.2.5",
 		"svelte-check": "^3.6.0",
 		"tailwindcss": "^3.3.5",
 		"typescript": "^5.2.2",
 		"vite": "^4.5.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@libsql/client": "0.3.0",
+		"@lucia-auth/adapter-sqlite": "^2.0.1",
+		"@lucia-auth/oauth": "^3.5.0",
+		"dotenv": "^16.3.1",
+		"drizzle-orm": "^0.29.0",
+		"lucia": "^2.7.4",
+		"providers": "link:@lucia-auth/oauth/providers"
+	}
 }
