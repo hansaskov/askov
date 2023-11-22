@@ -30,7 +30,7 @@
 	}
 </script>
 
-<div class="relative h-[100dvh]" {...$$restProps}>
+<div class="relative h-[100svh]" {...$$restProps}>
 	{#each images as image, index (image)}
 		{#if currentImageIndex === index}
 			<img
