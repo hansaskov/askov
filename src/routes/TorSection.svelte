@@ -1,13 +1,19 @@
 <script>
-	import Tor3 from '$lib/assets/tor/tor_3.jpg';
-	import Tor2 from '$lib/assets/tor/tor_1.jpg';
-	import Tor1 from '$lib/assets/tor/tor_2.jpg';
+	import Tor7 from '$lib/assets/tor/tor_7.jpg?enhanced';
+	import Tor6 from '$lib/assets/tor/tor_6.jpg?enhanced';
+	import Tor4 from '$lib/assets/tor/tor_4.webp?enhanced';
+	import Tor3 from '$lib/assets/tor/tor_3.jpg?enhanced';
+	import Tor2 from '$lib/assets/tor/tor_1.jpg?enhanced';
+	import Tor1 from '$lib/assets/tor/tor_2.jpg?enhanced';
 
 	/** @type {{ path: string, description: string }[]} */
 	const images = [
-		{ path: Tor2, description: 'Fra den første dag' },
+		{ path: Tor2, description: 'Cute fra den første dag' },
 		{ path: Tor1, description: 'Tor er altid sulten' },
-		{ path: Tor3, description: 'Der er fars kat' }
+		{ path: Tor3, description: 'Og elsker far. Det er hans kat' },
+		{ path: Tor4, description: 'Tor og miso er også venner' },
+		{ path: Tor6, description: 'De kan godt dele sengen, men ikke alt for tæt' },
+		{ path: Tor7, description: 'Mor er også en stor fan' },
 	];
 </script>
 
@@ -18,11 +24,9 @@
 
 	{#each images as { path, description }, index}
 		<div class={`flex ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} items-center my-4`}>
-			<img
-				src={path}
-				alt={description}
-				class={`w-[49%] shadow-lg ${index % 2 === 0 ? 'rounded-r-xl' : 'rounded-l-xl'}`}
-			/>
+			<div class={`w-[49%] `}>
+				<enhanced:img src={path} alt={description} class={`shadow-lg ${index % 2 === 0 ? 'rounded-r-xl' : 'rounded-l-xl'}`} />
+			</div>
 			<p class="flex-1 text-md sm:text-xl lg:text-3xl mx-8 text-center text-primary p-4 rounded-lg">
 				{description}
 			</p>

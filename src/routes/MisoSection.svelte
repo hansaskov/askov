@@ -1,9 +1,9 @@
 <script>
-	import Miso3 from '$lib/assets/miso/miso_3.webp';
-	import Miso7 from '$lib/assets/miso/miso_7.webp';
-	import Miso8 from '$lib/assets/miso/miso_8.webp';
-	import Miso1 from '$lib/assets/miso/miso_1.webp';
-	import Miso4 from '$lib/assets/miso/miso_4.webp';
+	import Miso3 from '$lib/assets/miso/miso_3.webp?enhanced';
+	import Miso7 from '$lib/assets/miso/miso_7.webp?enhanced';
+	import Miso8 from '$lib/assets/miso/miso_8.webp?enhanced';
+	import Miso1 from '$lib/assets/miso/miso_1.webp?enhanced';
+	import Miso4 from '$lib/assets/miso/miso_4.webp?enhanced';
 
 	/** @type {{ path: string, description: string }[]} */
 	const images = [
@@ -22,11 +22,9 @@
 
 	{#each images as { path, description }, index}
 		<div class={`flex ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} items-center my-4`}>
-			<img
-				src={path}
-				alt={description}
-				class={`w-[49%] shadow-lg ${index % 2 === 0 ? 'rounded-r-xl' : 'rounded-l-xl'}`}
-			/>
+			<div class={`w-[49%] `}>
+				<enhanced:img src={path} alt={description} class={`shadow-lg ${index % 2 === 0 ? 'rounded-r-xl' : 'rounded-l-xl'}`} />
+			</div>
 			<p class="flex-1 text-md sm:text-xl lg:text-3xl mx-8 text-center text-primary p-4 rounded-lg">
 				{description}
 			</p>
