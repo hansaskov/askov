@@ -17,7 +17,7 @@
 
 <div class="bg-background text-text pt-4 pb-16 md:pt-8" {...$$restProps}>
 	<h1 class="text-3xl lg:text-5xl font-bold text-primary mb-8 text-center">
-		Mød Miso, vores yndlingskat!
+		Giv ekstra kærlighed til Miso
 	</h1>
 
 	{#each images as { path, description }, index}

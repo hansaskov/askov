@@ -1,5 +1,5 @@
 import type { Config } from 'drizzle-kit';
-import * as dotenv from "dotenv";
+import * as dotenv from 'dotenv';
 dotenv.config();
 
 export default {
@@ -7,8 +7,7 @@ export default {
 	out: './drizzle',
 	driver: 'turso',
 	dbCredentials: {
-    url: process.env.TURSO_URL!,
-    authToken: process.env.TURSO_AUTH_TOKEN
-
+		url: process.env.TURSO_URL!,
+		authToken: process.env.TURSO_AUTH_TOKEN
 	}
 } satisfies Config;

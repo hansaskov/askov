@@ -10,7 +10,7 @@
 
 	let currentImageIndex = 0;
 
-	/** @type {number | undefined}*/
+	/** @type {NodeJS.Timeout}*/
 	let interval;
 	const images = [House4, House1, House2, House3];
 
