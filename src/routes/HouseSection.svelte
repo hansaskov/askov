@@ -47,8 +47,8 @@
 	<div
 		class="absolute top-1/2 left-1/2 w-full transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center p-4 text-center bg-black bg-opacity-50"
 	>
-		<h2 class="text-5xl text-secondary font-bold mb-4">Velkommen til Askov.dk</h2>
-		<p class="text-xl font-medium text-accent">Et kig ind i familien askov og deres hjemmeside</p>
+		<h2 class="text-5xl font-bold mb-4 text-base-100">Velkommen til Askov.dk</h2>
+		<p class="text-xl font-medium text-base-100">Et kig ind i familien askov og deres hjemmeside</p>
 	</div>
 	<div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-3">
 		{#each images as _, index}

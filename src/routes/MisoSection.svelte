@@ -11,7 +11,7 @@
 		{ path: Miso7, description: 'Miso har været hos dyrlægen' },
 		{ path: Miso8, description: 'Miso har spillet Mario Kart med familien' },
 		{ path: Miso1, description: 'Miso ligger udenfor og ser på fugle' },
-		{ path: Miso4, description: 'Miso sover udenfor' }
+		{ path: Miso4, description: 'Miso sover på sofaen' }
 	];
 </script>
 

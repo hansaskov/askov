@@ -2,7 +2,7 @@
 <script>
 	import HeroSection from './HouseSection.svelte';
 	import MisoSection from './MisoSection.svelte';
-	import Navbar from './Navbar.svelte';
+	import Navbar from '../lib/components/Navbar.svelte';
 	import TorSection from './TorSection.svelte';
 </script>
 

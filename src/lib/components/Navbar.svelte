@@ -12,6 +12,7 @@
 	<div class="grow flex justify-center md:justify-end">
 		<ThemePicker />
 	</div>
+	
 	<div>
 		<a href="onskeliste" class="btn btn-ghost text-lg md:text-2xl">Ønskeliste</a>
 	</div>

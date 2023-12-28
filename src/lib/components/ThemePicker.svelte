@@ -1,5 +1,5 @@
 <script>
-	const themes = { spring: 'Forår', fall: 'Efterår' };
+	const themes = {light: "standard", spring: 'Forår', fall: 'Efterår' };
 </script>
 
 <div class="dropdown dropdown-top md:dropdown-bottom dropdown-hover">
@@ -27,7 +27,7 @@
 				<input
 					type="radio"
 					name="theme-dropdown"
-					class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+					class="theme-controller btn btn-sm btn-block btn-ghost justify-start py-2"
 					aria-label={val}
 					value={key}
 				/>
