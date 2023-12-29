@@ -21,8 +21,8 @@
 		"@sveltejs/vite-plugin-svelte": "^3.0.1",
 		"@tailwindcss/typography": "^0.5.10",
 		"autoprefixer": "^10.4.16",
-		"daisyui": "^4.4.23",
-		"drizzle-kit": "^0.20.7",
+		"daisyui": "^4.4.24",
+		"drizzle-kit": "^0.20.9",
 		"eslint": "^8.56.0",
 		"eslint-config-prettier": "^8.10.0",
 		"eslint-plugin-svelte": "^2.35.1",
@@ -41,7 +41,7 @@
 		"@lucia-auth/adapter-sqlite": "^2.0.1",
 		"@lucia-auth/oauth": "^3.5.0",
 		"dotenv": "^16.3.1",
-		"drizzle-orm": "^0.29.1",
+		"drizzle-orm": "^0.29.2",
 		"lucia": "^2.7.6",
 		"providers": "link:@lucia-auth/oauth/providers"
 	}

@@ -18,7 +18,7 @@ dependencies:
     specifier: ^16.3.1
     version: 16.3.1
   drizzle-orm:
-    specifier: ^0.29.1
+    specifier: ^0.29.2
     version: 0.29.2(@libsql/client@0.4.0-pre.5)(@types/react@18.2.46)(expo-sqlite@13.2.0)(react@18.2.0)
   lucia:
     specifier: ^2.7.6
@@ -47,10 +47,10 @@ devDependencies:
     specifier: ^10.4.16
     version: 10.4.16(postcss@8.4.32)
   daisyui:
-    specifier: ^4.4.23
+    specifier: ^4.4.24
     version: 4.4.24(postcss@8.4.32)
   drizzle-kit:
-    specifier: ^0.20.7
+    specifier: ^0.20.9
     version: 0.20.9
   eslint:
     specifier: ^8.56.0
