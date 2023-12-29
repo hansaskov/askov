@@ -1,5 +1,5 @@
 <script>
-	const themes = {light: "standard", spring: 'Forår', fall: 'Efterår' };
+	const themes = {light: "Standard", spring: 'Forår', fall: 'Efterår' };
 </script>
 
 <div class="dropdown dropdown-top md:dropdown-bottom dropdown-hover">

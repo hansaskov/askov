@@ -14,6 +14,6 @@
 	</div>
 	
 	<div>
-		<a href="onskeliste" class="btn btn-ghost text-lg md:text-2xl">Ønskeliste</a>
+		<a href="https://docs.google.com/document/d/1GwbUXPgOqU7pjAf6vQPXjYOIiZ3mTVdm330x8AtTnrA/edit?usp=sharing" class="btn btn-ghost text-lg md:text-2xl">Ønskeliste</a>
 	</div>
 </div>
