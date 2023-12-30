@@ -1,15 +1,15 @@
 <script>
+	import Tor8 from '$lib/assets/tor/tor_8.jpg?enhanced';
 	import Tor7 from '$lib/assets/tor/tor_7.jpg?enhanced';
 	import Tor6 from '$lib/assets/tor/tor_6.jpg?enhanced';
 	import Tor4 from '$lib/assets/tor/tor_4.webp?enhanced';
 	import Tor3 from '$lib/assets/tor/tor_3.jpg?enhanced';
-	import Tor2 from '$lib/assets/tor/tor_1.jpg?enhanced';
-	import Tor1 from '$lib/assets/tor/tor_2.jpg?enhanced';
+	import Tor2 from '$lib/assets/tor/tor_2.jpg?enhanced';
 
 	/** @type {{ path: string, description: string }[]} */
 	const images = [
-		{ path: Tor2, description: 'Cute fra den første dag' },
-		{ path: Tor1, description: 'Tor er altid sulten' },
+		{ path: Tor8, description: 'Tor elsker at sove, især med far' },
+		{ path: Tor2, description: 'Tor er altid sulten' },
 		{ path: Tor3, description: 'Og elsker far. Det er hans kat' },
 		{ path: Tor4, description: 'Tor og miso er også venner' },
 		{ path: Tor6, description: 'De kan godt dele sengen, men ikke alt for tæt' },
