@@ -1,0 +1,24 @@
+---
+export interface Props {
+  imageSrc: string;
+  alt: string;
+  caption: string;
+  reverse?: boolean;
+}
+
+const { imageSrc, alt, caption, reverse = false } = Astro.props;
+---
+
+<div class={`flex ${reverse ? 'flex-row-reverse' : 'flex-row'} items-center my-4`}>
+  <div class="w-[49%]">
+    <img 
+      src={imageSrc} 
+      alt={alt} 
+      class={`shadow-lg ${reverse ? 'rounded-l-xl' : 'rounded-r-xl'}`}
+      loading="lazy"
+    />
+  </div>
+  <p class="flex-1 text-md sm:text-xl lg:text-3xl mx-8 text-center text-primary p-4 rounded-lg">
+    {caption}
+  </p>
+</div>

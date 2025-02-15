@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ImageWithCaption from '../components/ImageWithCaption.astro';
+import Navbar from '../components/Navbar.astro';
+
+// Hero images data
+const heroImages = [
+  { src: "hjemmet/hjemmet_view1.webp", alt: "Hjemmet view 1" },
+  { src: "hjemmet/hjemmet_view2.webp", alt: "Hjemmet view 2" },
+  { src: "hjemmet/hjemmet_view3.webp", alt: "Hjemmet view 3" },
+  { src: "hjemmet/hjemmet_view4.webp", alt: "Hjemmet view 4" }
+];
+
+// Tor images data
+const torImages = [
+  { src: "tor/tor_8.webp", alt: "Tor elsker at sove, især med far", caption: "Tor elsker at sove, især med far" },
+  { src: "tor/tor_2.webp", alt: "Tor er altid sulten", caption: "Tor er altid sulten" },
+  { src: "tor/tor_3.webp", alt: "Og elsker far. Det er hans kat", caption: "Og elsker far. Det er hans kat" },
+  { src: "tor/tor_4.webp", alt: "Tor og miso er også venner", caption: "Tor og miso er også venner" },
+  { src: "tor/tor_6.webp", alt: "De kan godt dele sengen, men ikke alt for tæt", caption: "De kan godt dele sengen, men ikke alt for tæt" },
+  { src: "tor/tor_7.webp", alt: "Mor er også en stor fan", caption: "Mor er også en stor fan" }
+];
+
+// Miso images data
+const misoImages = [
+  { src: "miso/miso_3.webp", alt: "Miso solbader i vores lænestol", caption: "Miso solbader i vores lænestol" },
+  { src: "miso/miso_7.webp", alt: "Miso har været hos dyrlægen", caption: "Miso har været hos dyrlægen" },
+  { src: "miso/miso_8.webp", alt: "Miso har spillet Mario Kart med familien", caption: "Miso har spillet Mario Kart med familien" },
+  { src: "miso/miso_1.webp", alt: "Miso ligger udenfor og ser på fugle", caption: "Miso ligger udenfor og ser på fugle" },
+  { src: "miso/miso_4.webp", alt: "Miso sover på sofaen", caption: "Miso sover på sofaen" }
+];
+---
+<Layout title="Askov.dk">
+	<div>
+	  <div>
+		<Hero images={heroImages} currentIndex={0} />
+	  </div>
+	  <div class="flex flex-col md:flex-col-reverse">
+		<div class="pt-8">
+		  <div class="bg-background text-text">
+			<h1 class="text-3xl lg:text-5xl font-bold text-primary mb-8 text-center">
+			  Mød Tor, Fars nye killing!
+			</h1>
+			
+			{torImages.map((image, index) => (
+			  <ImageWithCaption 
+				imageSrc={image.src}
+				alt={image.alt}
+				caption={image.caption}
+				reverse={index % 2 !== 0}
+			  />
+			))}
+		  </div>
+		  
+		  <div class="bg-background text-text pt-4 pb-16 md:pt-8">
+			<h1 class="text-3xl lg:text-5xl font-bold text-primary mb-8 text-center">
+			  Giv ekstra kærlighed til Miso
+			</h1>
+			
+			{misoImages.map((image, index) => (
+			  <ImageWithCaption 
+				imageSrc={image.src}
+				alt={image.alt}
+				caption={image.caption}
+				reverse={index % 2 !== 0}
+			  />
+			))}
+		  </div>
+		</div>
+		<Navbar />
+	  </div>
+	</div>
+  </Layout>

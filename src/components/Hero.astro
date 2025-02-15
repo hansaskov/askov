@@ -1,0 +1,198 @@
+---
+export interface Props {
+  images: {
+    src: string;
+    alt: string;
+  }[];
+  title?: string;
+  subtitle?: string;
+  currentIndex?: number;
+}
+
+const { 
+  images, 
+  title = "Velkommen til Askov.dk", 
+  subtitle = "Et kig ind i familien askov og deres hjemmeside", 
+  currentIndex = 0 
+} = Astro.props;
+---
+
+<section class="relative overflow-hidden h-[100svh]" aria-label="Hero carousel">
+  <!-- Image Container with Animation -->
+  <div class="absolute inset-0 transition-opacity duration-1000" id="image-container">
+    {images.map((image, index) => (
+      <div 
+        class={`absolute inset-0 transition-opacity duration-1000 ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
+        data-index={index}
+      >
+        <img
+          src={image.src}
+          alt={image.alt}
+          class="w-full h-full object-cover"
+          loading={index === currentIndex ? "eager" : "lazy"}
+        />
+      </div>
+    ))}
+  </div>
+  
+  <!-- Overlay with improved gradient -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/70"></div>
+  
+  <!-- Content with subtle animation -->
+  <div class="absolute inset-0 flex flex-col items-center justify-center px-4 text-center">
+    <div class="max-w-4xl mx-auto" id="hero-content">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
+        {title}
+      </h1>
+      <p class="text-lg md:text-xl font-medium text-white/90 max-w-2xl mx-auto">
+        {subtitle}
+      </p>
+      <div class="mt-8">
+        <slot />
+      </div>
+    </div>
+  </div>
+  
+  <!-- Navigation with improved accessibility and visual design - now with z-20 -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-4 z-20" id="dot-navigation">
+    {images.map((_, index) => (
+      <button
+        class={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black
+          ${index === currentIndex 
+            ? 'bg-white scale-125' 
+            : 'bg-white/40 hover:bg-white/60'}`}
+        aria-label={`View image ${index + 1} of ${images.length}`}
+        aria-current={index === currentIndex ? 'true' : 'false'}
+        data-index={index}
+      ></button>
+    ))}
+  </div>
+  
+  <!-- Arrow navigation for better usability - now with z-20 -->
+  <button 
+    class="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/30 text-white hover:bg-black/50 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-white z-20"
+    id="prev-button"
+    aria-label="Previous image"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+    </svg>
+  </button>
+  
+  <button 
+    class="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/30 text-white hover:bg-black/50 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-white z-20"
+    id="next-button"
+    aria-label="Next image"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+    </svg>
+  </button>
+</section>
+
+<script define:vars={{ images, currentIndex }}>
+// Enhanced carousel functionality with animations
+let activeIndex = currentIndex;
+const imageContainers = Array.from(document.querySelectorAll('#image-container [data-index]'));
+const dotButtons = Array.from(document.querySelectorAll('#dot-navigation button[data-index]'));
+const nextButton = document.getElementById('next-button');
+const prevButton = document.getElementById('prev-button');
+const heroContent = document.getElementById('hero-content');
+
+// Function to update the active image and navigation state
+function updateActiveImage(newIndex) {
+  // Prevent out of bounds
+  if (newIndex < 0 || newIndex >= images.length) return;
+  
+  // Update images
+  imageContainers.forEach((el) => {
+    const index = parseInt(el.getAttribute('data-index') || '0');
+    el.classList.toggle('opacity-0', index !== newIndex);
+    el.classList.toggle('opacity-100', index === newIndex);
+  });
+  
+  // Update dot buttons - using the cached collection
+  dotButtons.forEach((btn, i) => {
+    if (btn) { // Check if button exists
+      btn.classList.toggle('bg-white', i === newIndex);
+      btn.classList.toggle('scale-125', i === newIndex);
+      btn.classList.toggle('bg-white/40', i !== newIndex);
+      btn.setAttribute('aria-current', i === newIndex ? 'true' : 'false');
+    }
+  });
+  
+  // Subtle animation for content
+  if (heroContent) {
+    heroContent.animate([
+      { opacity: 0.8, transform: 'translateY(10px)' },
+      { opacity: 1, transform: 'translateY(0)' }
+    ], {
+      duration: 500,
+      easing: 'ease-out'
+    });
+  }
+  
+  activeIndex = newIndex;
+}
+
+// Add click handlers to navigation dots - make sure they're all valid
+if (dotButtons.length > 0) {
+  dotButtons.forEach(btn => {
+    if (btn) { // Check if button exists
+      btn.addEventListener('click', () => {
+        const newIndex = parseInt(btn.getAttribute('data-index') || '0');
+        updateActiveImage(newIndex);
+      });
+    }
+  });
+}
+
+// Add click handlers for prev/next buttons
+if (nextButton) {
+  nextButton.addEventListener('click', () => {
+    const newIndex = (activeIndex + 1) % images.length;
+    updateActiveImage(newIndex);
+  });
+}
+
+if (prevButton) {
+  prevButton.addEventListener('click', () => {
+    const newIndex = (activeIndex - 1 + images.length) % images.length;
+    updateActiveImage(newIndex);
+  });
+}
+
+// Optional: Auto-rotation for the carousel
+let autoRotateInterval;
+function startAutoRotate() {
+  autoRotateInterval = setInterval(() => {
+    const newIndex = (activeIndex + 1) % images.length;
+    updateActiveImage(newIndex);
+  }, 5000); // Change image every 5 seconds
+}
+
+function stopAutoRotate() {
+  clearInterval(autoRotateInterval);
+}
+
+// Start auto-rotation and pause on user interaction
+startAutoRotate();
+const carouselSection = document.querySelector('section');
+if (carouselSection) {
+  carouselSection.addEventListener('mouseover', stopAutoRotate);
+  carouselSection.addEventListener('mouseout', startAutoRotate);
+  carouselSection.addEventListener('focus', stopAutoRotate, true);
+  carouselSection.addEventListener('blur', startAutoRotate, true);
+}
+
+// Handle keyboard navigation
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowLeft') {
+    const newIndex = (activeIndex - 1 + images.length) % images.length;
+    updateActiveImage(newIndex);
+  } else if (e.key === 'ArrowRight') {
+    const newIndex = (activeIndex + 1) % images.length;
+    updateActiveImage(newIndex);
+  }
+});
+</script>
