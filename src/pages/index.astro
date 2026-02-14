@@ -34,17 +34,17 @@ const misoImages = [
 <Layout title="Askov.dk">
 	<div>
 	  <div>
-		<Hero images={heroImages} currentIndex={0} />
+		<Hero images={heroImages} />
 	  </div>
 	  <div class="flex flex-col md:flex-col-reverse">
-		<div class="pt-8">
+		<div class="pt-8 max-w-5xl mx-auto w-full px-4 md:px-8">
 		  <div class="bg-background text-text">
 			<h1 class="text-3xl lg:text-5xl font-bold text-primary mb-8 text-center">
 			  Mød Tor, Fars nye killing!
 			</h1>
-			
+
 			{torImages.map((image, index) => (
-			  <ImageWithCaption 
+			  <ImageWithCaption
 				imageSrc={image.src}
 				alt={image.alt}
 				caption={image.caption}
@@ -52,14 +52,14 @@ const misoImages = [
 			  />
 			))}
 		  </div>
-		  
+
 		  <div class="bg-background text-text pt-4 pb-16 md:pt-8">
 			<h1 class="text-3xl lg:text-5xl font-bold text-primary mb-8 text-center">
 			  Giv ekstra kærlighed til Miso
 			</h1>
-			
+
 			{misoImages.map((image, index) => (
-			  <ImageWithCaption 
+			  <ImageWithCaption
 				imageSrc={image.src}
 				alt={image.alt}
 				caption={image.caption}

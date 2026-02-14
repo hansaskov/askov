@@ -9,16 +9,16 @@ export interface Props {
 const { imageSrc, alt, caption, reverse = false } = Astro.props;
 ---
 
-<div class={`flex ${reverse ? 'flex-row-reverse' : 'flex-row'} items-center my-4`}>
-  <div class="w-[49%]">
-    <img 
-      src={imageSrc} 
-      alt={alt} 
-      class={`shadow-lg ${reverse ? 'rounded-l-xl' : 'rounded-r-xl'}`}
+<div class={`flex flex-col ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'} items-center mb-10 md:my-4 gap-1 md:gap-4`}>
+  <div class="w-full md:w-[49%]">
+    <img
+      src={imageSrc}
+      alt={alt}
+      class={`shadow-lg rounded-xl md:rounded-none ${reverse ? 'md:rounded-l-xl' : 'md:rounded-r-xl'}`}
       loading="lazy"
     />
   </div>
-  <p class="flex-1 text-md sm:text-xl lg:text-3xl mx-8 text-center text-primary p-4 rounded-lg">
+  <p class="flex-1 text-base sm:text-lg lg:text-2xl px-4 md:mx-4 text-center text-primary/70 md:text-primary rounded-lg">
     {caption}
   </p>
 </div>
