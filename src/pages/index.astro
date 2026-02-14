@@ -4,31 +4,49 @@ import Hero from '../components/Hero.astro';
 import ImageWithCaption from '../components/ImageWithCaption.astro';
 import Navbar from '../components/Navbar.astro';
 
+import hjemmetView1 from '../assets/images/hjemmet/hjemmet_view1.webp';
+import hjemmetView2 from '../assets/images/hjemmet/hjemmet_view2.webp';
+import hjemmetView3 from '../assets/images/hjemmet/hjemmet_view3.webp';
+import hjemmetView4 from '../assets/images/hjemmet/hjemmet_view4.webp';
+
+import tor8 from '../assets/images/tor/tor_8.webp';
+import tor2 from '../assets/images/tor/tor_2.webp';
+import tor3 from '../assets/images/tor/tor_3.webp';
+import tor4 from '../assets/images/tor/tor_4.webp';
+import tor6 from '../assets/images/tor/tor_6.webp';
+import tor7 from '../assets/images/tor/tor_7.webp';
+
+import miso3 from '../assets/images/miso/miso_3.webp';
+import miso7 from '../assets/images/miso/miso_7.webp';
+import miso8 from '../assets/images/miso/miso_8.webp';
+import miso1 from '../assets/images/miso/miso_1.webp';
+import miso4 from '../assets/images/miso/miso_4.webp';
+
 // Hero images data
 const heroImages = [
-  { src: "hjemmet/hjemmet_view1.webp", alt: "Hjemmet view 1" },
-  { src: "hjemmet/hjemmet_view2.webp", alt: "Hjemmet view 2" },
-  { src: "hjemmet/hjemmet_view3.webp", alt: "Hjemmet view 3" },
-  { src: "hjemmet/hjemmet_view4.webp", alt: "Hjemmet view 4" }
+  { src: hjemmetView1, alt: "Hjemmet view 1" },
+  { src: hjemmetView2, alt: "Hjemmet view 2" },
+  { src: hjemmetView3, alt: "Hjemmet view 3" },
+  { src: hjemmetView4, alt: "Hjemmet view 4" }
 ];
 
 // Tor images data
 const torImages = [
-  { src: "tor/tor_8.webp", alt: "Tor elsker at sove, især med far", caption: "Tor elsker at sove, især med far" },
-  { src: "tor/tor_2.webp", alt: "Tor er altid sulten", caption: "Tor er altid sulten" },
-  { src: "tor/tor_3.webp", alt: "Og elsker far. Det er hans kat", caption: "Og elsker far. Det er hans kat" },
-  { src: "tor/tor_4.webp", alt: "Tor og miso er også venner", caption: "Tor og miso er også venner" },
-  { src: "tor/tor_6.webp", alt: "De kan godt dele sengen, men ikke alt for tæt", caption: "De kan godt dele sengen, men ikke alt for tæt" },
-  { src: "tor/tor_7.webp", alt: "Mor er også en stor fan", caption: "Mor er også en stor fan" }
+  { src: tor8, alt: "Tor elsker at sove, især med far", caption: "Tor elsker at sove, især med far" },
+  { src: tor2, alt: "Tor er altid sulten", caption: "Tor er altid sulten" },
+  { src: tor3, alt: "Og elsker far. Det er hans kat", caption: "Og elsker far. Det er hans kat" },
+  { src: tor4, alt: "Tor og miso er også venner", caption: "Tor og miso er også venner" },
+  { src: tor6, alt: "De kan godt dele sengen, men ikke alt for tæt", caption: "De kan godt dele sengen, men ikke alt for tæt" },
+  { src: tor7, alt: "Mor er også en stor fan", caption: "Mor er også en stor fan" }
 ];
 
 // Miso images data
 const misoImages = [
-  { src: "miso/miso_3.webp", alt: "Miso solbader i vores lænestol", caption: "Miso solbader i vores lænestol" },
-  { src: "miso/miso_7.webp", alt: "Miso har været hos dyrlægen", caption: "Miso har været hos dyrlægen" },
-  { src: "miso/miso_8.webp", alt: "Miso har spillet Mario Kart med familien", caption: "Miso har spillet Mario Kart med familien" },
-  { src: "miso/miso_1.webp", alt: "Miso ligger udenfor og ser på fugle", caption: "Miso ligger udenfor og ser på fugle" },
-  { src: "miso/miso_4.webp", alt: "Miso sover på sofaen", caption: "Miso sover på sofaen" }
+  { src: miso3, alt: "Miso solbader i vores lænestol", caption: "Miso solbader i vores lænestol" },
+  { src: miso7, alt: "Miso har været hos dyrlægen", caption: "Miso har været hos dyrlægen" },
+  { src: miso8, alt: "Miso har spillet Mario Kart med familien", caption: "Miso har spillet Mario Kart med familien" },
+  { src: miso1, alt: "Miso ligger udenfor og ser på fugle", caption: "Miso ligger udenfor og ser på fugle" },
+  { src: miso4, alt: "Miso sover på sofaen", caption: "Miso sover på sofaen" }
 ];
 ---
 <Layout title="Askov.dk">

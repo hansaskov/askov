@@ -1,7 +1,10 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
 export interface Props {
   images: {
-    src: string;
+    src: ImageMetadata;
     alt: string;
   }[];
   title?: string;
@@ -41,9 +44,10 @@ const dynamicCss = images.map((_, i) => {
   <div class="absolute inset-0">
     {images.map((image, index) => (
       <div class={`absolute inset-0 transition-opacity duration-700 opacity-0 slide-${index}`}>
-        <img
+        <Image
           src={image.src}
           alt={image.alt}
+          width={1920}
           class="w-full h-full object-cover"
           loading={index === 0 ? "eager" : "lazy"}
         />
