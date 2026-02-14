@@ -1,24 +1,24 @@
 {
-  "name": "askov",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "lint": "biome lint --write"
-  },
-  "dependencies": {
-    "@tailwindcss/vite": "^4.1.18",
-    "astro": "^5.17.2",
-    "tailwindcss": "^4.1.18"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "2.3.15",
-    "daisyui": "^5.5.18"
-  },
-  "trustedDependencies": [
-    "@biomejs/biome"
-  ]
+	"name": "askov",
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"lint": "bun x oxlint --fix",
+		"format": "bun x oxfmt",
+		"check": "bun x oxlint --fix && bun x oxfmt"
+	},
+	"dependencies": {
+		"@tailwindcss/vite": "^4.1.18",
+		"astro": "^5.17.2",
+		"tailwindcss": "^4.1.18"
+	},
+	"devDependencies": {
+		"daisyui": "^5.5.18",
+		"oxfmt": "^0.32.0",
+		"oxlint": "^1.47.0"
+	}
 }
