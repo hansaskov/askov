@@ -1,7 +1,14 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-	themes:
-		silk --default,
-		emerald,
-		fantasy;
+    themes:
+        silk --default,
+        fantasy;
+}
+
+html {
+    background-color: var(--color-neutral);
+}
+
+body {
+    background-color: var(--color-base-200);
 }
