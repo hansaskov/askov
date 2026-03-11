@@ -1,116 +1,165 @@
 ---
-import { Image } from 'astro:assets';
-import type { ImageMetadata } from 'astro';
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 
 export interface Props {
-  images: {
-    src: ImageMetadata;
-    alt: string;
-  }[];
-  title?: string;
-  subtitle?: string;
+    images: {
+        src: ImageMetadata;
+        alt: string;
+    }[];
+    title?: string;
+    subtitle?: string;
 }
 
 const {
-  images,
-  title = "Velkommen til Askov.dk",
-  subtitle = "Et kig ind i familien askov og deres hjemmeside",
+    images,
+    title = "Velkommen til Askov.dk",
+    subtitle = "Et kig ind i familien askov og deres hjemmeside",
 } = Astro.props;
 
 // Generate CSS for radio-based slide switching
-const dynamicCss = images.map((_, i) => {
-  const prev = (i - 1 + images.length) % images.length;
-  const next = (i + 1) % images.length;
-  return `
+const dynamicCss = images
+    .map((_, i) => {
+        const prev = (i - 1 + images.length) % images.length;
+        const next = (i + 1) % images.length;
+        return `
     .hero-carousel:has(#hero-slide-${i}:checked) .slide-${i} { opacity: 1; }
     .hero-carousel:has(#hero-slide-${i}:checked) .nav-${i} { display: flex; }
     .hero-carousel:has(#hero-slide-${i}:checked) .dot-${i} { background: white; transform: scale(1.25); }`;
-}).join('\n');
+    })
+    .join("\n");
 ---
 
-<section class="hero-carousel relative h-[100svh] overflow-hidden" aria-label="Hero carousel">
-  <!-- Hidden radio inputs to track active slide -->
-  {images.map((_, index) => (
-    <input
-      type="radio"
-      name="hero-carousel"
-      id={`hero-slide-${index}`}
-      class="hidden"
-      checked={index === 0}
-    />
-  ))}
+<section
+    class="hero-carousel relative h-[100svh] overflow-hidden"
+    aria-label="Hero carousel"
+>
+    <!-- Hidden radio inputs to track active slide -->
+    {
+        images.map((_, index) => (
+            <input
+                type="radio"
+                name="hero-carousel"
+                id={`hero-slide-${index}`}
+                class="hidden"
+                checked={index === 0}
+            />
+        ))
+    }
 
-  <!-- Image slides - stacked absolutely, shown via CSS opacity -->
-  <div class="absolute inset-0">
-    {images.map((image, index) => (
-      <div class={`absolute inset-0 transition-opacity duration-700 opacity-0 slide-${index}`}>
-        <Image
-          src={image.src}
-          alt={image.alt}
-          width={1920}
-          class="w-full h-full object-cover"
-          loading={index === 0 ? "eager" : "lazy"}
-        />
-      </div>
-    ))}
-  </div>
-
-  <!-- Overlay gradient -->
-  <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/70 pointer-events-none"></div>
-
-  <!-- Title content -->
-  <div class="absolute inset-0 flex flex-col items-center justify-center px-4 text-center pointer-events-none">
-    <div class="max-w-4xl mx-auto">
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
-        {title}
-      </h1>
-      <p class="text-lg md:text-xl font-medium text-white max-w-2xl mx-auto">
-        {subtitle}
-      </p>
-      <div class="mt-8">
-        <slot />
-      </div>
+    <!-- Image slides - stacked absolutely, shown via CSS opacity -->
+    <div class="absolute inset-0">
+        {
+            images.map((image, index) => (
+                <div
+                    class={`absolute inset-0 transition-opacity duration-700 opacity-0 slide-${index}`}
+                >
+                    <Picture
+                        src={image.src}
+                        alt={image.alt}
+                        formats={["avif", "webp"]}
+                        width={1920}
+                        class="w-full h-full object-cover"
+                        loading={index === 0 ? "eager" : "lazy"}
+                    />
+                </div>
+            ))
+        }
     </div>
-  </div>
 
-  <!-- Arrow navigation - one set per slide, only the active set is visible -->
-  {images.map((_, index) => {
-    const prevIndex = (index - 1 + images.length) % images.length;
-    const nextIndex = (index + 1) % images.length;
-    return (
-      <div class={`nav-${index} hidden absolute left-4 right-4 top-1/2 -translate-y-1/2 justify-between z-20`}>
-        <label
-          for={`hero-slide-${prevIndex}`}
-          class="btn btn-circle bg-black/50 border-none text-white hover:bg-black/60 cursor-pointer"
-          aria-label="Previous image"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-          </svg>
-        </label>
-        <label
-          for={`hero-slide-${nextIndex}`}
-          class="btn btn-circle bg-black/50 border-none text-white hover:bg-black/60 cursor-pointer"
-          aria-label="Next image"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-          </svg>
-        </label>
-      </div>
-    );
-  })}
+    <!-- Overlay gradient -->
+    <div
+        class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/70 pointer-events-none"
+    >
+    </div>
 
-  <!-- Dot navigation -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-4 z-20">
-    {images.map((_, index) => (
-      <label
-        for={`hero-slide-${index}`}
-        class={`dot-${index} w-3 h-3 rounded-full bg-white/60 hover:bg-white transition-all duration-300 cursor-pointer`}
-        aria-label={`View image ${index + 1} of ${images.length}`}
-      />
-    ))}
-  </div>
+    <!-- Title content -->
+    <div
+        class="absolute inset-0 flex flex-col items-center justify-center px-4 text-center pointer-events-none"
+    >
+        <div class="max-w-4xl mx-auto">
+            <h1
+                class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white"
+            >
+                {title}
+            </h1>
+            <p
+                class="text-lg md:text-xl font-medium text-white max-w-2xl mx-auto"
+            >
+                {subtitle}
+            </p>
+            <div class="mt-8">
+                <slot />
+            </div>
+        </div>
+    </div>
+
+    <!-- Arrow navigation - one set per slide, only the active set is visible -->
+    {
+        images.map((_, index) => {
+            const prevIndex = (index - 1 + images.length) % images.length;
+            const nextIndex = (index + 1) % images.length;
+            return (
+                <div
+                    class={`nav-${index} hidden absolute left-4 right-4 top-1/2 -translate-y-1/2 justify-between z-20`}
+                >
+                    <label
+                        for={`hero-slide-${prevIndex}`}
+                        class="btn btn-circle bg-black/50 border-none text-white hover:bg-black/60 cursor-pointer"
+                        aria-label="Previous image"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="2.5"
+                            stroke="currentColor"
+                            class="w-6 h-6"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M15.75 19.5L8.25 12l7.5-7.5"
+                            />
+                        </svg>
+                    </label>
+                    <label
+                        for={`hero-slide-${nextIndex}`}
+                        class="btn btn-circle bg-black/50 border-none text-white hover:bg-black/60 cursor-pointer"
+                        aria-label="Next image"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="2.5"
+                            stroke="currentColor"
+                            class="w-6 h-6"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                            />
+                        </svg>
+                    </label>
+                </div>
+            );
+        })
+    }
+
+    <!-- Dot navigation -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-4 z-20">
+        {
+            images.map((_, index) => (
+                <label
+                    for={`hero-slide-${index}`}
+                    class={`dot-${index} w-3 h-3 rounded-full bg-white/60 hover:bg-white transition-all duration-300 cursor-pointer`}
+                    aria-label={`View image ${index + 1} of ${images.length}`}
+                />
+            ))
+        }
+    </div>
 </section>
 
 <Fragment set:html={`<style>${dynamicCss}</style>`} />
