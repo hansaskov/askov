@@ -2,6 +2,7 @@
 	"name": "askov",
 	"version": "0.0.1",
 	"type": "module",
+	"packageManager": "pnpm@10.33.4",
 	"scripts": {
 		"dev": "astro dev",
 		"build": "astro build",
